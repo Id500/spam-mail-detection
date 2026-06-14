@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spam Mail Detection</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:#f2f6ff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            padding:40px;
+            width:450px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0 10px 25px rgba(0,0,0,0.15);
+
+            text-align:center;
+        }
+
+        h1{
+            color:#1e3a8a;
+            margin-bottom:20px;
+        }
+
+        textarea{
+            width:100%;
+            height:160px;
+
+            padding:15px;
+
+            border:2px solid #dbe4ff;
+
+            border-radius:10px;
+
+            font-size:16px;
+
+            resize:none;
+
+            outline:none;
+        }
+
+        textarea:focus{
+            border-color:#2563eb;
+        }
+
+        button{
+
+            width:100%;
+
+            padding:14px;
+
+            margin-top:20px;
+
+            border:none;
+
+            border-radius:10px;
+
+            background:#2563eb;
+
+            color:white;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+        .result{
+
+            margin-top:20px;
+
+            padding:15px;
+
+            border-radius:10px;
+
+            background:#eef4ff;
+
+            color:#0f172a;
+
+            font-weight:bold;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Spam Mail Detection</h1>
+
+<form action="/predict" method="POST">
+
+<textarea
+name="mail"
+placeholder="Enter email message here..."
+required>
+</textarea>
+
+<button type="submit">
+Check Mail
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+Result:
+{{ prediction }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
